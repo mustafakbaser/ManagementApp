@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using ManagementApp.Data;
+﻿using ManagementApp.Data;
 using ManagementApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ManagementApp.Services
 {
@@ -15,37 +13,41 @@ namespace ManagementApp.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<WorkOrder>> GetWorkOrdersAsync()
+        public async Task<IEnumerable<WorkOrder>> GetAllWorkOrdersAsync()
         {
-            return await _context.WorkOrders.Include(t => t.Documents).Include(t => t.Images).ToListAsync();
+            return await _context.WorkOrders.Include(w => w.Documents).Include(w => w.Images).ToListAsync();
         }
 
         public async Task<WorkOrder> GetWorkOrderByIdAsync(int id)
         {
-            return await _context.WorkOrders.Include(t => t.Documents).Include(t => t.Images)
-                .FirstOrDefaultAsync(t => t.Id == id);
+            return await _context.WorkOrders.Include(w => w.Documents).Include(w => w.Images).FirstOrDefaultAsync(w => w.Id == id);
         }
 
-        public async Task CreateWorkOrderAsync(WorkOrder workOrder)
+        public async Task<WorkOrder> AddWorkOrderAsync(WorkOrder workOrder)
         {
             _context.WorkOrders.Add(workOrder);
             await _context.SaveChangesAsync();
+            return workOrder;
         }
 
-        public async Task UpdateWorkOrderAsync(WorkOrder workOrder)
+        public async Task<WorkOrder> UpdateWorkOrderAsync(WorkOrder workOrder)
         {
-            _context.WorkOrders.Update(workOrder);
+            _context.Entry(workOrder).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+            return workOrder;
         }
 
-        public async Task DeleteWorkOrderAsync(int id)
+        public async Task<bool> DeleteWorkOrderAsync(int id)
         {
             var workOrder = await _context.WorkOrders.FindAsync(id);
-            if (workOrder != null)
+            if (workOrder == null)
             {
-                _context.WorkOrders.Remove(workOrder);
-                await _context.SaveChangesAsync();
+                return false;
             }
+
+            _context.WorkOrders.Remove(workOrder);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }
