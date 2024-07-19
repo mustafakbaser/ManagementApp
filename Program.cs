@@ -7,8 +7,7 @@ using ManagementApp.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
-builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();  // Razor Pages servisini ekle
 
 // Configure the DbContext with PostgreSQL
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -16,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Add Identity services
 builder.Services.AddDefaultIdentity<ApplicationUser>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Add custom services
@@ -37,12 +37,16 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Configure the authentication
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
+// Map Razor Pages
 app.MapRazorPages();
+
+// Optionally, map controller routes if needed
+// app.MapControllerRoute(
+//     name: "default",
+//     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
