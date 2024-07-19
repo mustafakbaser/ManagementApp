@@ -1,0 +1,45 @@
+﻿@page
+@model ManagementApp.Pages.WorkOrders.IndexModel
+
+@{
+    ViewData["Title"] = "Work Orders";
+}
+
+<h1>Work Orders</h1>
+
+<p>
+    <a asp-page="./Create" class="btn btn-primary">Create New Work Order</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Assigner</th>
+            <th>AssignedTo</th>
+            <th>CreatedDate</th>
+            <th>LastUpdatedDate</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.WorkOrders)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.Status</td>
+                <td>@item.Assigner</td>
+                <td>@item.AssignedTo</td>
+                <td>@item.CreatedDate.ToString("MM/dd/yyyy")</td>
+                <td>@item.LastUpdatedDate.ToString("MM/dd/yyyy")</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

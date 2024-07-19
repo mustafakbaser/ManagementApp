@@ -1,0 +1,64 @@
+﻿@page
+@model ManagementApp.Pages.WorkOrders.CreateModel
+@{
+    ViewData["Title"] = "Create Work Order";
+}
+
+<h1>Create Work Order</h1>
+
+<h4>Work Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="WorkOrder.Title" class="control-label"></label>
+                <input asp-for="WorkOrder.Title" class="form-control" />
+                <span asp-validation-for="WorkOrder.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkOrder.Description" class="control-label"></label>
+                <input asp-for="WorkOrder.Description" class="form-control" />
+                <span asp-validation-for="WorkOrder.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkOrder.Status" class="control-label"></label>
+                <input asp-for="WorkOrder.Status" class="form-control" />
+                <span asp-validation-for="WorkOrder.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkOrder.Assigner" class="control-label"></label>
+                <input asp-for="WorkOrder.Assigner" class="form-control" />
+                <span asp-validation-for="WorkOrder.Assigner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkOrder.AssignedTo" class="control-label"></label>
+                <input asp-for="WorkOrder.AssignedTo" class="form-control" />
+                <span asp-validation-for="WorkOrder.AssignedTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkOrder.CreatedDate" class="control-label"></label>
+                <input asp-for="WorkOrder.CreatedDate" class="form-control" readonly />
+                <span asp-validation-for="WorkOrder.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkOrder.LastUpdatedDate" class="control-label"></label>
+                <input asp-for="WorkOrder.LastUpdatedDate" class="form-control" readonly />
+                <span asp-validation-for="WorkOrder.LastUpdatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
