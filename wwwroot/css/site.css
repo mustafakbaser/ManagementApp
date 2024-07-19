@@ -19,8 +19,6 @@ header {
     background: #333;
     color: #fff;
     padding: 10px 0;
-    border-bottom: #ccc 2px solid;
-    z-index: 1000; /* Header’ın diğer içeriğin üstüne çıkmasını sağlar */
 }
 
     header a {
@@ -28,6 +26,8 @@ header {
         text-decoration: none;
         font-size: 18px;
         margin-right: 15px;
+        border: none;
+        box-shadow: none;
     }
 
     header ul {

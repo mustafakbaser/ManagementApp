@@ -1,50 +1,48 @@
 ﻿@page "{id}"
 @model ManagementApp.Pages.WorkOrders.EditModel
-
 @{
     ViewData["Title"] = "Edit Work Order";
 }
 
-<h1>Edit Work Order</h1>
-
-<form method="post">
-    <input type="hidden" asp-for="WorkOrder.Id" />
-    <div class="form-group">
-        <label asp-for="WorkOrder.Title" class="control-label"></label>
-        <input asp-for="WorkOrder.Title" class="form-control" />
-        <span asp-validation-for="WorkOrder.Title" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="WorkOrder.Description" class="control-label"></label>
-        <textarea asp-for="WorkOrder.Description" class="form-control"></textarea>
-        <span asp-validation-for="WorkOrder.Description" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="WorkOrder.Status" class="control-label"></label>
-        <input asp-for="WorkOrder.Status" class="form-control" />
-        <span asp-validation-for="WorkOrder.Status" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="WorkOrder.Assigner" class="control-label"></label>
-        <input asp-for="WorkOrder.Assigner" class="form-control" />
-        <span asp-validation-for="WorkOrder.Assigner" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="WorkOrder.AssignedTo" class="control-label"></label>
-        <input asp-for="WorkOrder.AssignedTo" class="form-control" />
-        <span asp-validation-for="WorkOrder.AssignedTo" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="WorkOrder.CreatedDate" class="control-label"></label>
-        <input asp-for="WorkOrder.CreatedDate" class="form-control" type="datetime-local" />
-        <span asp-validation-for="WorkOrder.CreatedDate" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="WorkOrder.LastUpdatedDate" class="control-label"></label>
-        <input asp-for="WorkOrder.LastUpdatedDate" class="form-control" type="datetime-local" />
-        <span asp-validation-for="WorkOrder.LastUpdatedDate" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Save</button>
-    </div>
-</form>
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+    <form method="post">
+        <input type="hidden" asp-for="WorkOrder.Id" />
+        <div class="form-group">
+            <label asp-for="WorkOrder.Title" class="control-label"></label>
+            <input asp-for="WorkOrder.Title" class="form-control" />
+            <span asp-validation-for="WorkOrder.Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="WorkOrder.Description" class="control-label"></label>
+            <textarea asp-for="WorkOrder.Description" class="form-control"></textarea>
+            <span asp-validation-for="WorkOrder.Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="WorkOrder.Status" class="control-label"></label>
+            <input asp-for="WorkOrder.Status" class="form-control" />
+            <span asp-validation-for="WorkOrder.Status" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="WorkOrder.Assigner" class="control-label"></label>
+            <input asp-for="WorkOrder.Assigner" class="form-control" />
+            <span asp-validation-for="WorkOrder.Assigner" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="WorkOrder.AssignedTo" class="control-label"></label>
+            <input asp-for="WorkOrder.AssignedTo" class="form-control" />
+            <span asp-validation-for="WorkOrder.AssignedTo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="WorkOrder.CreatedDate" class="control-label"></label>
+            <input asp-for="WorkOrder.CreatedDate" class="form-control" />
+            <span asp-validation-for="WorkOrder.CreatedDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="WorkOrder.LastUpdatedDate" class="control-label"></label>
+            <input asp-for="WorkOrder.LastUpdatedDate" class="form-control" />
+            <span asp-validation-for="WorkOrder.LastUpdatedDate" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>

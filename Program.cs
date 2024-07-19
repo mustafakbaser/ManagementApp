@@ -44,9 +44,18 @@ app.UseAuthorization();
 // Map Razor Pages
 app.MapRazorPages();
 
-// Optionally, map controller routes if needed
-// app.MapControllerRoute(
-//     name: "default",
-//     pattern: "{controller=Home}/{action=Index}/{id?}");
+// Set the default page
+app.MapGet("/", () => Results.Redirect("/WorkOrders/Index"));
+
+// Custom 404 page
+app.UseStatusCodePages(async context =>
+{
+    var statusCode = context.HttpContext.Response.StatusCode;
+
+    if (statusCode == 404)
+    {
+        context.HttpContext.Response.Redirect("/404");
+    }
+});
 
 app.Run();
