@@ -1,4 +1,6 @@
-﻿namespace ManagementApp.Models
+﻿using System;
+
+namespace ManagementApp.Models
 {
     public class WorkOrderViewModel
     {
@@ -10,7 +12,5 @@
         public string AssignedTo { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime LastUpdatedDate { get; set; }
-        public IEnumerable<Document> Documents { get; set; }
-        public IEnumerable<Image> Images { get; set; }
     }
 }

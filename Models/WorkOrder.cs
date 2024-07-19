@@ -9,11 +9,25 @@ namespace ManagementApp.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
-        public string Assigner { get; set; } // User Id of the assigner
-        public string AssignedTo { get; set; } // User Id of the assignee
-        public DateTime CreatedDate { get; set; }
-        public DateTime LastUpdatedDate { get; set; }
-        public List<Document> Documents { get; set; }
-        public List<Image> Images { get; set; }
+        public string Assigner { get; set; }
+        public string AssignedTo { get; set; }
+
+        private DateTime _createdDate;
+        public DateTime CreatedDate
+        {
+            get => _createdDate;
+            set => _createdDate = value.ToUniversalTime();
+        }
+
+        private DateTime _lastUpdatedDate;
+        public DateTime LastUpdatedDate
+        {
+            get => _lastUpdatedDate;
+            set => _lastUpdatedDate = value.ToUniversalTime();
+        }
+
+        // Navigation properties
+        public List<Document> Documents { get; set; } = new List<Document>();
+        public List<Image> Images { get; set; } = new List<Image>();
     }
 }
