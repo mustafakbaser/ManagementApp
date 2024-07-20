@@ -2,7 +2,14 @@
 
 ## Overview
 
-This repository contains the code for a Work Order Management System built using ASP.NET Core with PostgreSQL. The system provides functionalities for managing work orders, including creating, editing, and viewing work orders, with role-based access control and user management.
+Work Order Management System developed with ASP.NET Core and PostgreSQL. The system is designed to streamline the management of work orders within an organization, offering robust features for task assignment, progress tracking, and reporting. Key functionalities include:
+
+- **Work Order Creation and Editing:** Allows users to create new work orders and edit existing ones with ease.
+- **Role-Based Access Control:** Ensures appropriate access levels for different user roles, including Managers, Engineers, Foremen, and Human Resources.
+- **Dynamic Status Management:** Provides real-time updates on work order statuses with customizable options.
+- **Data Integrity and Security:** Implements secure authentication mechanisms and data validation to maintain integrity.
+
+The system aims to enhance operational efficiency by providing a user-friendly interface and comprehensive task management capabilities. It is well-suited for companies seeking to optimize their work order processes and improve overall productivity.
 
 ## Prerequisites
 
