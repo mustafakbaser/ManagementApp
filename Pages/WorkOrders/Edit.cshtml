@@ -29,19 +29,21 @@
             <span asp-validation-for="WorkOrder.Assigner" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="WorkOrder.AssignedTo" class="control-label"></label>
+            <label asp-for="WorkOrder.AssignedTo" class="control-label">Assigned To</label>
             <input asp-for="WorkOrder.AssignedTo" class="form-control" />
             <span asp-validation-for="WorkOrder.AssignedTo" class="text-danger"></span>
         </div>
-        <div class="form-group">
-            <label asp-for="WorkOrder.CreatedDate" class="control-label"></label>
-            <input asp-for="WorkOrder.CreatedDate" class="form-control" />
-            <span asp-validation-for="WorkOrder.CreatedDate" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="WorkOrder.LastUpdatedDate" class="control-label"></label>
-            <input asp-for="WorkOrder.LastUpdatedDate" class="form-control" />
-            <span asp-validation-for="WorkOrder.LastUpdatedDate" class="text-danger"></span>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="WorkOrder.CreatedDate" class="control-label">Created Date</label>
+                <input asp-for="WorkOrder.CreatedDate" class="form-control" readonly />
+                <span asp-validation-for="WorkOrder.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="WorkOrder.LastUpdatedDate" class="control-label">Last Updated Date</label>
+                <input asp-for="WorkOrder.LastUpdatedDate" class="form-control" readonly />
+                <span asp-validation-for="WorkOrder.LastUpdatedDate" class="text-danger"></span>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Save Changes</button>
     </form>

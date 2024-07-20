@@ -23,8 +23,8 @@ namespace ManagementApp.Pages.WorkOrders
         {
             WorkOrder = new WorkOrderViewModel
             {
-                CreatedDate = DateTime.Now,
-                LastUpdatedDate = DateTime.Now
+                CreatedDate = DateTime.Now.AddHours(3), // GMT+3
+                LastUpdatedDate = DateTime.Now.AddHours(3) // GMT+3
             };
         }
 
@@ -42,8 +42,8 @@ namespace ManagementApp.Pages.WorkOrders
                 Status = WorkOrder.Status,
                 Assigner = WorkOrder.Assigner,
                 AssignedTo = WorkOrder.AssignedTo,
-                CreatedDate = WorkOrder.CreatedDate.ToUniversalTime(),
-                LastUpdatedDate = WorkOrder.LastUpdatedDate.ToUniversalTime()
+                CreatedDate = DateTime.UtcNow.AddHours(3), // GMT+3
+                LastUpdatedDate = DateTime.UtcNow.AddHours(3) // GMT+3
             };
 
             var createdWorkOrder = await _workOrderService.AddWorkOrderAsync(workOrder);

@@ -1,4 +1,4 @@
-using ManagementApp.Models;
+﻿using ManagementApp.Models;
 using ManagementApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -57,8 +57,8 @@ namespace ManagementApp.Pages.WorkOrders
                 Status = WorkOrder.Status,
                 Assigner = WorkOrder.Assigner,
                 AssignedTo = WorkOrder.AssignedTo,
-                CreatedDate = WorkOrder.CreatedDate.ToUniversalTime(),
-                LastUpdatedDate = WorkOrder.LastUpdatedDate.ToUniversalTime()
+                CreatedDate = WorkOrder.CreatedDate, // Bu değişmez
+                LastUpdatedDate = DateTime.UtcNow.AddHours(3) // GMT+3
             };
 
             var updatedWorkOrder = await _workOrderService.UpdateWorkOrderAsync(workOrder);
